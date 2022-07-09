@@ -5,9 +5,13 @@ class Vobsub2srt < Formula
   sha256 "e311e12f39dedd641d7e1dc0ac4554ad8b5e3c44eef2f21574b36b0d9a3a05b2"
   license "GPL-3.0"
 
-  # depends_on "cmake" => :build
+  depends_on 'cmake'
+  depends_on 'tesseract'
+  depends_on 'ffmpeg'
+
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "make", "install"
   end
 end
